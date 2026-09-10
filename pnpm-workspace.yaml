@@ -1,0 +1,15 @@
+# pnpm 11 reads settings from this file, not from a "pnpm" key in package.json.
+#
+# unrs-resolver is the native import resolver that eslint-config-next pulls in.
+# pnpm blocks postinstall scripts by default; approving this one here keeps the
+# decision committed and reproducible, so a fresh clone or CI does not stop on
+# an interactive prompt.
+allowBuilds:
+  unrs-resolver: true
+
+# The compatibility bridge in eslint.config.mjs adapts these ESLint 9 plugin APIs to ESLint 10.
+peerDependencyRules:
+  allowedVersions:
+    "eslint-plugin-import>eslint": "10"
+    "eslint-plugin-jsx-a11y>eslint": "10"
+    "eslint-plugin-react>eslint": "10"
